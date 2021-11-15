@@ -2,6 +2,22 @@
   "contractName": "TokenFarm",
   "abi": [
     {
+      "inputs": [
+        {
+          "internalType": "contract DaiToken",
+          "name": "_daiToken",
+          "type": "address"
+        },
+        {
+          "internalType": "contract DappToken",
+          "name": "_dappToken",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "inputs": [],
       "name": "name",
       "outputs": [
@@ -12,38 +28,685 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/TokenFarm.sol\":\"TokenFarm\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/TokenFarm.sol\":{\"keccak256\":\"0xd5d03eb12fd1d62b8eaecff0563491970543426ac8bdcf09480392dc1f45d91a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0c64c311b7040cf2f30b8ff7225b02398c15164436d43b9cd66e718bfe7e1ab0\",\"dweb:/ipfs/QmfLzN443G9a734EhDLTsae9X934tj2iV5AbsX4EBPrfEg\"]}},\"version\":1}",
-  "bytecode": "0x60806040526040518060400160405280600981526020017f546f6b656e4661726d00000000000000000000000000000000000000000000008152506000908051906020019061004f929190610062565b5034801561005c57600080fd5b50610166565b82805461006e90610105565b90600052602060002090601f01602090048101928261009057600085556100d7565b82601f106100a957805160ff19168380011785556100d7565b828001600101855582156100d7579182015b828111156100d65782518255916020019190600101906100bb565b5b5090506100e491906100e8565b5090565b5b808211156101015760008160009055506001016100e9565b5090565b6000600282049050600182168061011d57607f821691505b6020821081141561013157610130610137565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b61022e806101756000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c806306fdde0314610030575b600080fd5b61003861004e565b6040516100459190610115565b60405180910390f35b6000805461005b90610186565b80601f016020809104026020016040519081016040528092919081815260200182805461008790610186565b80156100d45780601f106100a9576101008083540402835291602001916100d4565b820191906000526020600020905b8154815290600101906020018083116100b757829003601f168201915b505050505081565b60006100e782610137565b6100f18185610142565b9350610101818560208601610153565b61010a816101e7565b840191505092915050565b6000602082019050818103600083015261012f81846100dc565b905092915050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610171578082015181840152602081019050610156565b83811115610180576000848401525b50505050565b6000600282049050600182168061019e57607f821691505b602082108114156101b2576101b16101b8565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000601f19601f830116905091905056fea264697066735822122001acd0333211081c9c3220af494bf2c0c1ccadf70cf15b4c59085dad762d9b4364736f6c63430008000033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c806306fdde0314610030575b600080fd5b61003861004e565b6040516100459190610115565b60405180910390f35b6000805461005b90610186565b80601f016020809104026020016040519081016040528092919081815260200182805461008790610186565b80156100d45780601f106100a9576101008083540402835291602001916100d4565b820191906000526020600020905b8154815290600101906020018083116100b757829003601f168201915b505050505081565b60006100e782610137565b6100f18185610142565b9350610101818560208601610153565b61010a816101e7565b840191505092915050565b6000602082019050818103600083015261012f81846100dc565b905092915050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610171578082015181840152602081019050610156565b83811115610180576000848401525b50505050565b6000600282049050600182168061019e57607f821691505b602082108114156101b2576101b16101b8565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000601f19601f830116905091905056fea264697066735822122001acd0333211081c9c3220af494bf2c0c1ccadf70cf15b4c59085dad762d9b4364736f6c63430008000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract DaiToken\",\"name\":\"_daiToken\",\"type\":\"address\"},{\"internalType\":\"contract DappToken\",\"name\":\"_dappToken\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/TokenFarm.sol\":\"TokenFarm\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/DaiToken.sol\":{\"keccak256\":\"0xafd2cef1739239b238585e27e217d59205dae6ccd1b1efa1b735591d860cd5d1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1011deb98c465ba64a240e9fb9b945a93a18cefe37ea5fa7aaf996b621eee2d7\",\"dweb:/ipfs/QmRzyc9ax6MZ7DduKBicmuAHMyFeT5H4qGoLN2AWgYvDfP\"]},\"project:/src/contracts/DappToken.sol\":{\"keccak256\":\"0xd463c7c36f83b7da4f47ab80196bbabee139cc7290ecff96cb6fbe8f7351b098\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://00ab6b6bce285bb735eedc8edaeca4657c50269c12ebd2f90a3207c041ab0595\",\"dweb:/ipfs/QmNyVHz2AV442R1izfkAe4aVjY4R9ADNL8mNAAShRAWA7R\"]},\"project:/src/contracts/TokenFarm.sol\":{\"keccak256\":\"0x1115c288bb98460b0a3887a0a2a630b8eef926376a5ea68629491ba6ea9cf3ce\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d00ee9602cfad27960d53f1137e8121664cb7c8d7a30aeffab043fd932a36f39\",\"dweb:/ipfs/QmTV927RzNDUQcysr8mgV1wEoP1xNTwqQd1EsSFZXvjeMN\"]}},\"version\":1}",
+  "bytecode": "0x60806040526040518060400160405280600981526020017f546f6b656e4661726d00000000000000000000000000000000000000000000008152506000908051906020019061004f929190610107565b5034801561005c57600080fd5b50604051610532380380610532833981810160405281019061007e91906101d4565b81600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050506102f5565b82805461011390610266565b90600052602060002090601f016020900481019282610135576000855561017c565b82601f1061014e57805160ff191683800117855561017c565b8280016001018555821561017c579182015b8281111561017b578251825591602001919060010190610160565b5b509050610189919061018d565b5090565b5b808211156101a657600081600090555060010161018e565b5090565b6000815190506101b9816102c7565b92915050565b6000815190506101ce816102de565b92915050565b600080604083850312156101e757600080fd5b60006101f5858286016101aa565b9250506020610206858286016101bf565b9150509250929050565b600061021b82610246565b9050919050565b600061022d82610210565b9050919050565b600061023f82610210565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000600282049050600182168061027e57607f821691505b6020821081141561029257610291610298565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6102d081610222565b81146102db57600080fd5b50565b6102e781610234565b81146102f257600080fd5b50565b61022e806103046000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c806306fdde0314610030575b600080fd5b61003861004e565b6040516100459190610115565b60405180910390f35b6000805461005b90610186565b80601f016020809104026020016040519081016040528092919081815260200182805461008790610186565b80156100d45780601f106100a9576101008083540402835291602001916100d4565b820191906000526020600020905b8154815290600101906020018083116100b757829003601f168201915b505050505081565b60006100e782610137565b6100f18185610142565b9350610101818560208601610153565b61010a816101e7565b840191505092915050565b6000602082019050818103600083015261012f81846100dc565b905092915050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610171578082015181840152602081019050610156565b83811115610180576000848401525b50505050565b6000600282049050600182168061019e57607f821691505b602082108114156101b2576101b16101b8565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000601f19601f830116905091905056fea264697066735822122093c57ea3de00e6fe5382d8b6ad6cf58190125f2917cdce65af6f034af4f68ba864736f6c63430008000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c806306fdde0314610030575b600080fd5b61003861004e565b6040516100459190610115565b60405180910390f35b6000805461005b90610186565b80601f016020809104026020016040519081016040528092919081815260200182805461008790610186565b80156100d45780601f106100a9576101008083540402835291602001916100d4565b820191906000526020600020905b8154815290600101906020018083116100b757829003601f168201915b505050505081565b60006100e782610137565b6100f18185610142565b9350610101818560208601610153565b61010a816101e7565b840191505092915050565b6000602082019050818103600083015261012f81846100dc565b905092915050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610171578082015181840152602081019050610156565b83811115610180576000848401525b50505050565b6000600282049050600182168061019e57607f821691505b602082108114156101b2576101b16101b8565b5b50919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000601f19601f830116905091905056fea264697066735822122093c57ea3de00e6fe5382d8b6ad6cf58190125f2917cdce65af6f034af4f68ba864736f6c63430008000033",
   "immutableReferences": {},
   "generatedSources": [
     {
       "ast": {
         "nodeType": "YulBlock",
-        "src": "0:516:4",
+        "src": "0:2185:4",
         "statements": [
           {
             "body": {
               "nodeType": "YulBlock",
-              "src": "58:269:4",
+              "src": "86:96:4",
               "statements": [
                 {
                   "nodeType": "YulAssignment",
-                  "src": "68:22:4",
+                  "src": "96:22:4",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "offset",
+                        "nodeType": "YulIdentifier",
+                        "src": "111:6:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "mload",
+                      "nodeType": "YulIdentifier",
+                      "src": "105:5:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "105:13:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "value",
+                      "nodeType": "YulIdentifier",
+                      "src": "96:5:4"
+                    }
+                  ]
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "name": "value",
+                        "nodeType": "YulIdentifier",
+                        "src": "170:5:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "validator_revert_t_contract$_DaiToken_$180",
+                      "nodeType": "YulIdentifier",
+                      "src": "127:42:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "127:49:4"
+                  },
+                  "nodeType": "YulExpressionStatement",
+                  "src": "127:49:4"
+                }
+              ]
+            },
+            "name": "abi_decode_t_contract$_DaiToken_$180_fromMemory",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "offset",
+                "nodeType": "YulTypedName",
+                "src": "64:6:4",
+                "type": ""
+              },
+              {
+                "name": "end",
+                "nodeType": "YulTypedName",
+                "src": "72:3:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "80:5:4",
+                "type": ""
+              }
+            ],
+            "src": "7:175:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "268:97:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "278:22:4",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "offset",
+                        "nodeType": "YulIdentifier",
+                        "src": "293:6:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "mload",
+                      "nodeType": "YulIdentifier",
+                      "src": "287:5:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "287:13:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "value",
+                      "nodeType": "YulIdentifier",
+                      "src": "278:5:4"
+                    }
+                  ]
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "name": "value",
+                        "nodeType": "YulIdentifier",
+                        "src": "353:5:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "validator_revert_t_contract$_DappToken_$361",
+                      "nodeType": "YulIdentifier",
+                      "src": "309:43:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "309:50:4"
+                  },
+                  "nodeType": "YulExpressionStatement",
+                  "src": "309:50:4"
+                }
+              ]
+            },
+            "name": "abi_decode_t_contract$_DappToken_$361_fromMemory",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "offset",
+                "nodeType": "YulTypedName",
+                "src": "246:6:4",
+                "type": ""
+              },
+              {
+                "name": "end",
+                "nodeType": "YulTypedName",
+                "src": "254:3:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "262:5:4",
+                "type": ""
+              }
+            ],
+            "src": "188:177:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "498:379:4",
+              "statements": [
+                {
+                  "body": {
+                    "nodeType": "YulBlock",
+                    "src": "544:16:4",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "553:1:4",
+                              "type": "",
+                              "value": "0"
+                            },
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "556:1:4",
+                              "type": "",
+                              "value": "0"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "revert",
+                            "nodeType": "YulIdentifier",
+                            "src": "546:6:4"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "546:12:4"
+                        },
+                        "nodeType": "YulExpressionStatement",
+                        "src": "546:12:4"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "name": "dataEnd",
+                            "nodeType": "YulIdentifier",
+                            "src": "519:7:4"
+                          },
+                          {
+                            "name": "headStart",
+                            "nodeType": "YulIdentifier",
+                            "src": "528:9:4"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "sub",
+                          "nodeType": "YulIdentifier",
+                          "src": "515:3:4"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "515:23:4"
+                      },
+                      {
+                        "kind": "number",
+                        "nodeType": "YulLiteral",
+                        "src": "540:2:4",
+                        "type": "",
+                        "value": "64"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "slt",
+                      "nodeType": "YulIdentifier",
+                      "src": "511:3:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "511:32:4"
+                  },
+                  "nodeType": "YulIf",
+                  "src": "508:2:4"
+                },
+                {
+                  "nodeType": "YulBlock",
+                  "src": "570:144:4",
+                  "statements": [
+                    {
+                      "nodeType": "YulVariableDeclaration",
+                      "src": "585:15:4",
+                      "value": {
+                        "kind": "number",
+                        "nodeType": "YulLiteral",
+                        "src": "599:1:4",
+                        "type": "",
+                        "value": "0"
+                      },
+                      "variables": [
+                        {
+                          "name": "offset",
+                          "nodeType": "YulTypedName",
+                          "src": "589:6:4",
+                          "type": ""
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "YulAssignment",
+                      "src": "614:90:4",
+                      "value": {
+                        "arguments": [
+                          {
+                            "arguments": [
+                              {
+                                "name": "headStart",
+                                "nodeType": "YulIdentifier",
+                                "src": "676:9:4"
+                              },
+                              {
+                                "name": "offset",
+                                "nodeType": "YulIdentifier",
+                                "src": "687:6:4"
+                              }
+                            ],
+                            "functionName": {
+                              "name": "add",
+                              "nodeType": "YulIdentifier",
+                              "src": "672:3:4"
+                            },
+                            "nodeType": "YulFunctionCall",
+                            "src": "672:22:4"
+                          },
+                          {
+                            "name": "dataEnd",
+                            "nodeType": "YulIdentifier",
+                            "src": "696:7:4"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "abi_decode_t_contract$_DaiToken_$180_fromMemory",
+                          "nodeType": "YulIdentifier",
+                          "src": "624:47:4"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "624:80:4"
+                      },
+                      "variableNames": [
+                        {
+                          "name": "value0",
+                          "nodeType": "YulIdentifier",
+                          "src": "614:6:4"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "nodeType": "YulBlock",
+                  "src": "724:146:4",
+                  "statements": [
+                    {
+                      "nodeType": "YulVariableDeclaration",
+                      "src": "739:16:4",
+                      "value": {
+                        "kind": "number",
+                        "nodeType": "YulLiteral",
+                        "src": "753:2:4",
+                        "type": "",
+                        "value": "32"
+                      },
+                      "variables": [
+                        {
+                          "name": "offset",
+                          "nodeType": "YulTypedName",
+                          "src": "743:6:4",
+                          "type": ""
+                        }
+                      ]
+                    },
+                    {
+                      "nodeType": "YulAssignment",
+                      "src": "769:91:4",
+                      "value": {
+                        "arguments": [
+                          {
+                            "arguments": [
+                              {
+                                "name": "headStart",
+                                "nodeType": "YulIdentifier",
+                                "src": "832:9:4"
+                              },
+                              {
+                                "name": "offset",
+                                "nodeType": "YulIdentifier",
+                                "src": "843:6:4"
+                              }
+                            ],
+                            "functionName": {
+                              "name": "add",
+                              "nodeType": "YulIdentifier",
+                              "src": "828:3:4"
+                            },
+                            "nodeType": "YulFunctionCall",
+                            "src": "828:22:4"
+                          },
+                          {
+                            "name": "dataEnd",
+                            "nodeType": "YulIdentifier",
+                            "src": "852:7:4"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "abi_decode_t_contract$_DappToken_$361_fromMemory",
+                          "nodeType": "YulIdentifier",
+                          "src": "779:48:4"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "779:81:4"
+                      },
+                      "variableNames": [
+                        {
+                          "name": "value1",
+                          "nodeType": "YulIdentifier",
+                          "src": "769:6:4"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "name": "abi_decode_tuple_t_contract$_DaiToken_$180t_contract$_DappToken_$361_fromMemory",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "headStart",
+                "nodeType": "YulTypedName",
+                "src": "460:9:4",
+                "type": ""
+              },
+              {
+                "name": "dataEnd",
+                "nodeType": "YulTypedName",
+                "src": "471:7:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "value0",
+                "nodeType": "YulTypedName",
+                "src": "483:6:4",
+                "type": ""
+              },
+              {
+                "name": "value1",
+                "nodeType": "YulTypedName",
+                "src": "491:6:4",
+                "type": ""
+              }
+            ],
+            "src": "371:506:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "928:51:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "938:35:4",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "value",
+                        "nodeType": "YulIdentifier",
+                        "src": "967:5:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "cleanup_t_uint160",
+                      "nodeType": "YulIdentifier",
+                      "src": "949:17:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "949:24:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "cleaned",
+                      "nodeType": "YulIdentifier",
+                      "src": "938:7:4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "name": "cleanup_t_address",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "910:5:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "cleaned",
+                "nodeType": "YulTypedName",
+                "src": "920:7:4",
+                "type": ""
+              }
+            ],
+            "src": "883:96:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "1046:51:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "1056:35:4",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "value",
+                        "nodeType": "YulIdentifier",
+                        "src": "1085:5:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "cleanup_t_address",
+                      "nodeType": "YulIdentifier",
+                      "src": "1067:17:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "1067:24:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "cleaned",
+                      "nodeType": "YulIdentifier",
+                      "src": "1056:7:4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "name": "cleanup_t_contract$_DaiToken_$180",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "1028:5:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "cleaned",
+                "nodeType": "YulTypedName",
+                "src": "1038:7:4",
+                "type": ""
+              }
+            ],
+            "src": "985:112:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "1165:51:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "1175:35:4",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "value",
+                        "nodeType": "YulIdentifier",
+                        "src": "1204:5:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "cleanup_t_address",
+                      "nodeType": "YulIdentifier",
+                      "src": "1186:17:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "1186:24:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "cleaned",
+                      "nodeType": "YulIdentifier",
+                      "src": "1175:7:4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "name": "cleanup_t_contract$_DappToken_$361",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "1147:5:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "cleaned",
+                "nodeType": "YulTypedName",
+                "src": "1157:7:4",
+                "type": ""
+              }
+            ],
+            "src": "1103:113:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "1267:81:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "1277:65:4",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "value",
+                        "nodeType": "YulIdentifier",
+                        "src": "1292:5:4"
+                      },
+                      {
+                        "kind": "number",
+                        "nodeType": "YulLiteral",
+                        "src": "1299:42:4",
+                        "type": "",
+                        "value": "0xffffffffffffffffffffffffffffffffffffffff"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "and",
+                      "nodeType": "YulIdentifier",
+                      "src": "1288:3:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "1288:54:4"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "cleaned",
+                      "nodeType": "YulIdentifier",
+                      "src": "1277:7:4"
+                    }
+                  ]
+                }
+              ]
+            },
+            "name": "cleanup_t_uint160",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "1249:5:4",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "cleaned",
+                "nodeType": "YulTypedName",
+                "src": "1259:7:4",
+                "type": ""
+              }
+            ],
+            "src": "1222:126:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "1405:269:4",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "1415:22:4",
                   "value": {
                     "arguments": [
                       {
                         "name": "data",
                         "nodeType": "YulIdentifier",
-                        "src": "82:4:4"
+                        "src": "1429:4:4"
                       },
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "88:1:4",
+                        "src": "1435:1:4",
                         "type": "",
                         "value": "2"
                       }
@@ -51,33 +714,33 @@
                     "functionName": {
                       "name": "div",
                       "nodeType": "YulIdentifier",
-                      "src": "78:3:4"
+                      "src": "1425:3:4"
                     },
                     "nodeType": "YulFunctionCall",
-                    "src": "78:12:4"
+                    "src": "1425:12:4"
                   },
                   "variableNames": [
                     {
                       "name": "length",
                       "nodeType": "YulIdentifier",
-                      "src": "68:6:4"
+                      "src": "1415:6:4"
                     }
                   ]
                 },
                 {
                   "nodeType": "YulVariableDeclaration",
-                  "src": "99:38:4",
+                  "src": "1446:38:4",
                   "value": {
                     "arguments": [
                       {
                         "name": "data",
                         "nodeType": "YulIdentifier",
-                        "src": "129:4:4"
+                        "src": "1476:4:4"
                       },
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "135:1:4",
+                        "src": "1482:1:4",
                         "type": "",
                         "value": "1"
                       }
@@ -85,16 +748,16 @@
                     "functionName": {
                       "name": "and",
                       "nodeType": "YulIdentifier",
-                      "src": "125:3:4"
+                      "src": "1472:3:4"
                     },
                     "nodeType": "YulFunctionCall",
-                    "src": "125:12:4"
+                    "src": "1472:12:4"
                   },
                   "variables": [
                     {
                       "name": "outOfPlaceEncoding",
                       "nodeType": "YulTypedName",
-                      "src": "103:18:4",
+                      "src": "1450:18:4",
                       "type": ""
                     }
                   ]
@@ -102,22 +765,22 @@
                 {
                   "body": {
                     "nodeType": "YulBlock",
-                    "src": "176:51:4",
+                    "src": "1523:51:4",
                     "statements": [
                       {
                         "nodeType": "YulAssignment",
-                        "src": "190:27:4",
+                        "src": "1537:27:4",
                         "value": {
                           "arguments": [
                             {
                               "name": "length",
                               "nodeType": "YulIdentifier",
-                              "src": "204:6:4"
+                              "src": "1551:6:4"
                             },
                             {
                               "kind": "number",
                               "nodeType": "YulLiteral",
-                              "src": "212:4:4",
+                              "src": "1559:4:4",
                               "type": "",
                               "value": "0x7f"
                             }
@@ -125,16 +788,16 @@
                           "functionName": {
                             "name": "and",
                             "nodeType": "YulIdentifier",
-                            "src": "200:3:4"
+                            "src": "1547:3:4"
                           },
                           "nodeType": "YulFunctionCall",
-                          "src": "200:17:4"
+                          "src": "1547:17:4"
                         },
                         "variableNames": [
                           {
                             "name": "length",
                             "nodeType": "YulIdentifier",
-                            "src": "190:6:4"
+                            "src": "1537:6:4"
                           }
                         ]
                       }
@@ -145,24 +808,24 @@
                       {
                         "name": "outOfPlaceEncoding",
                         "nodeType": "YulIdentifier",
-                        "src": "156:18:4"
+                        "src": "1503:18:4"
                       }
                     ],
                     "functionName": {
                       "name": "iszero",
                       "nodeType": "YulIdentifier",
-                      "src": "149:6:4"
+                      "src": "1496:6:4"
                     },
                     "nodeType": "YulFunctionCall",
-                    "src": "149:26:4"
+                    "src": "1496:26:4"
                   },
                   "nodeType": "YulIf",
-                  "src": "146:2:4"
+                  "src": "1493:2:4"
                 },
                 {
                   "body": {
                     "nodeType": "YulBlock",
-                    "src": "279:42:4",
+                    "src": "1626:42:4",
                     "statements": [
                       {
                         "expression": {
@@ -170,13 +833,13 @@
                           "functionName": {
                             "name": "panic_error_0x22",
                             "nodeType": "YulIdentifier",
-                            "src": "293:16:4"
+                            "src": "1640:16:4"
                           },
                           "nodeType": "YulFunctionCall",
-                          "src": "293:18:4"
+                          "src": "1640:18:4"
                         },
                         "nodeType": "YulExpressionStatement",
-                        "src": "293:18:4"
+                        "src": "1640:18:4"
                       }
                     ]
                   },
@@ -185,19 +848,19 @@
                       {
                         "name": "outOfPlaceEncoding",
                         "nodeType": "YulIdentifier",
-                        "src": "243:18:4"
+                        "src": "1590:18:4"
                       },
                       {
                         "arguments": [
                           {
                             "name": "length",
                             "nodeType": "YulIdentifier",
-                            "src": "266:6:4"
+                            "src": "1613:6:4"
                           },
                           {
                             "kind": "number",
                             "nodeType": "YulLiteral",
-                            "src": "274:2:4",
+                            "src": "1621:2:4",
                             "type": "",
                             "value": "32"
                           }
@@ -205,22 +868,22 @@
                         "functionName": {
                           "name": "lt",
                           "nodeType": "YulIdentifier",
-                          "src": "263:2:4"
+                          "src": "1610:2:4"
                         },
                         "nodeType": "YulFunctionCall",
-                        "src": "263:14:4"
+                        "src": "1610:14:4"
                       }
                     ],
                     "functionName": {
                       "name": "eq",
                       "nodeType": "YulIdentifier",
-                      "src": "240:2:4"
+                      "src": "1587:2:4"
                     },
                     "nodeType": "YulFunctionCall",
-                    "src": "240:38:4"
+                    "src": "1587:38:4"
                   },
                   "nodeType": "YulIf",
-                  "src": "237:2:4"
+                  "src": "1584:2:4"
                 }
               ]
             },
@@ -230,7 +893,7 @@
               {
                 "name": "data",
                 "nodeType": "YulTypedName",
-                "src": "42:4:4",
+                "src": "1389:4:4",
                 "type": ""
               }
             ],
@@ -238,16 +901,16 @@
               {
                 "name": "length",
                 "nodeType": "YulTypedName",
-                "src": "51:6:4",
+                "src": "1398:6:4",
                 "type": ""
               }
             ],
-            "src": "7:320:4"
+            "src": "1354:320:4"
           },
           {
             "body": {
               "nodeType": "YulBlock",
-              "src": "361:152:4",
+              "src": "1708:152:4",
               "statements": [
                 {
                   "expression": {
@@ -255,14 +918,14 @@
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "378:1:4",
+                        "src": "1725:1:4",
                         "type": "",
                         "value": "0"
                       },
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "381:77:4",
+                        "src": "1728:77:4",
                         "type": "",
                         "value": "35408467139433450592217433187231851964531694900788300625387963629091585785856"
                       }
@@ -270,13 +933,13 @@
                     "functionName": {
                       "name": "mstore",
                       "nodeType": "YulIdentifier",
-                      "src": "371:6:4"
+                      "src": "1718:6:4"
                     },
                     "nodeType": "YulFunctionCall",
-                    "src": "371:88:4"
+                    "src": "1718:88:4"
                   },
                   "nodeType": "YulExpressionStatement",
-                  "src": "371:88:4"
+                  "src": "1718:88:4"
                 },
                 {
                   "expression": {
@@ -284,14 +947,14 @@
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "475:1:4",
+                        "src": "1822:1:4",
                         "type": "",
                         "value": "4"
                       },
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "478:4:4",
+                        "src": "1825:4:4",
                         "type": "",
                         "value": "0x22"
                       }
@@ -299,13 +962,13 @@
                     "functionName": {
                       "name": "mstore",
                       "nodeType": "YulIdentifier",
-                      "src": "468:6:4"
+                      "src": "1815:6:4"
                     },
                     "nodeType": "YulFunctionCall",
-                    "src": "468:15:4"
+                    "src": "1815:15:4"
                   },
                   "nodeType": "YulExpressionStatement",
-                  "src": "468:15:4"
+                  "src": "1815:15:4"
                 },
                 {
                   "expression": {
@@ -313,14 +976,14 @@
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "499:1:4",
+                        "src": "1846:1:4",
                         "type": "",
                         "value": "0"
                       },
                       {
                         "kind": "number",
                         "nodeType": "YulLiteral",
-                        "src": "502:4:4",
+                        "src": "1849:4:4",
                         "type": "",
                         "value": "0x24"
                       }
@@ -328,23 +991,225 @@
                     "functionName": {
                       "name": "revert",
                       "nodeType": "YulIdentifier",
-                      "src": "492:6:4"
+                      "src": "1839:6:4"
                     },
                     "nodeType": "YulFunctionCall",
-                    "src": "492:15:4"
+                    "src": "1839:15:4"
                   },
                   "nodeType": "YulExpressionStatement",
-                  "src": "492:15:4"
+                  "src": "1839:15:4"
                 }
               ]
             },
             "name": "panic_error_0x22",
             "nodeType": "YulFunctionDefinition",
-            "src": "333:180:4"
+            "src": "1680:180:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "1925:95:4",
+              "statements": [
+                {
+                  "body": {
+                    "nodeType": "YulBlock",
+                    "src": "1998:16:4",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2007:1:4",
+                              "type": "",
+                              "value": "0"
+                            },
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2010:1:4",
+                              "type": "",
+                              "value": "0"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "revert",
+                            "nodeType": "YulIdentifier",
+                            "src": "2000:6:4"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2000:12:4"
+                        },
+                        "nodeType": "YulExpressionStatement",
+                        "src": "2000:12:4"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "name": "value",
+                            "nodeType": "YulIdentifier",
+                            "src": "1948:5:4"
+                          },
+                          {
+                            "arguments": [
+                              {
+                                "name": "value",
+                                "nodeType": "YulIdentifier",
+                                "src": "1989:5:4"
+                              }
+                            ],
+                            "functionName": {
+                              "name": "cleanup_t_contract$_DaiToken_$180",
+                              "nodeType": "YulIdentifier",
+                              "src": "1955:33:4"
+                            },
+                            "nodeType": "YulFunctionCall",
+                            "src": "1955:40:4"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "eq",
+                          "nodeType": "YulIdentifier",
+                          "src": "1945:2:4"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "1945:51:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "iszero",
+                      "nodeType": "YulIdentifier",
+                      "src": "1938:6:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "1938:59:4"
+                  },
+                  "nodeType": "YulIf",
+                  "src": "1935:2:4"
+                }
+              ]
+            },
+            "name": "validator_revert_t_contract$_DaiToken_$180",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "1918:5:4",
+                "type": ""
+              }
+            ],
+            "src": "1866:154:4"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "2086:96:4",
+              "statements": [
+                {
+                  "body": {
+                    "nodeType": "YulBlock",
+                    "src": "2160:16:4",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2169:1:4",
+                              "type": "",
+                              "value": "0"
+                            },
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "2172:1:4",
+                              "type": "",
+                              "value": "0"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "revert",
+                            "nodeType": "YulIdentifier",
+                            "src": "2162:6:4"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2162:12:4"
+                        },
+                        "nodeType": "YulExpressionStatement",
+                        "src": "2162:12:4"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "name": "value",
+                            "nodeType": "YulIdentifier",
+                            "src": "2109:5:4"
+                          },
+                          {
+                            "arguments": [
+                              {
+                                "name": "value",
+                                "nodeType": "YulIdentifier",
+                                "src": "2151:5:4"
+                              }
+                            ],
+                            "functionName": {
+                              "name": "cleanup_t_contract$_DappToken_$361",
+                              "nodeType": "YulIdentifier",
+                              "src": "2116:34:4"
+                            },
+                            "nodeType": "YulFunctionCall",
+                            "src": "2116:41:4"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "eq",
+                          "nodeType": "YulIdentifier",
+                          "src": "2106:2:4"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "2106:52:4"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "iszero",
+                      "nodeType": "YulIdentifier",
+                      "src": "2099:6:4"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "2099:60:4"
+                  },
+                  "nodeType": "YulIf",
+                  "src": "2096:2:4"
+                }
+              ]
+            },
+            "name": "validator_revert_t_contract$_DappToken_$361",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "value",
+                "nodeType": "YulTypedName",
+                "src": "2079:5:4",
+                "type": ""
+              }
+            ],
+            "src": "2026:156:4"
           }
         ]
       },
-      "contents": "{\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n}\n",
+      "contents": "{\n\n    function abi_decode_t_contract$_DaiToken_$180_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_DaiToken_$180(value)\n    }\n\n    function abi_decode_t_contract$_DappToken_$361_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_DappToken_$361(value)\n    }\n\n    function abi_decode_tuple_t_contract$_DaiToken_$180t_contract$_DappToken_$361_fromMemory(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_contract$_DaiToken_$180_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_contract$_DappToken_$361_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_contract$_DaiToken_$180(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function cleanup_t_contract$_DappToken_$361(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n    function validator_revert_t_contract$_DaiToken_$180(value) {\n        if iszero(eq(value, cleanup_t_contract$_DaiToken_$180(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_contract$_DappToken_$361(value) {\n        if iszero(eq(value, cleanup_t_contract$_DappToken_$361(value))) { revert(0, 0) }\n    }\n\n}\n",
       "id": 4,
       "language": "Yul",
       "name": "#utility.yul"
@@ -1527,18 +2392,24 @@
       "name": "#utility.yul"
     }
   ],
-  "sourceMap": "70:62:3:-:0;;;96:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;70:62;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;7:320:4:-;;88:1;82:4;78:12;68:22;;135:1;129:4;125:12;156:18;146:2;;212:4;204:6;200:17;190:27;;146:2;274;266:6;263:14;243:18;240:38;237:2;;;293:18;;:::i;:::-;237:2;58:269;;;;:::o;333:180::-;381:77;378:1;371:88;478:4;475:1;468:15;502:4;499:1;492:15;70:62:3;;;;;;;",
-  "deployedSourceMap": "70:62:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;96:32;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;7:364:4:-;;123:39;156:5;123:39;:::i;:::-;178:71;242:6;237:3;178:71;:::i;:::-;171:78;;258:52;303:6;298:3;291:4;284:5;280:16;258:52;:::i;:::-;335:29;357:6;335:29;:::i;:::-;330:3;326:39;319:46;;99:272;;;;;:::o;377:313::-;;528:2;517:9;513:18;505:26;;577:9;571:4;567:20;563:1;552:9;548:17;541:47;605:78;678:4;669:6;605:78;:::i;:::-;597:86;;495:195;;;;:::o;696:99::-;;782:5;776:12;766:22;;755:40;;;:::o;801:169::-;;919:6;914:3;907:19;959:4;954:3;950:14;935:29;;897:73;;;;:::o;976:307::-;1044:1;1054:113;1068:6;1065:1;1062:13;1054:113;;;1153:1;1148:3;1144:11;1138:18;1134:1;1129:3;1125:11;1118:39;1090:2;1087:1;1083:10;1078:15;;1054:113;;;1185:6;1182:1;1179:13;1176:2;;;1265:1;1256:6;1251:3;1247:16;1240:27;1176:2;1025:258;;;;:::o;1289:320::-;;1370:1;1364:4;1360:12;1350:22;;1417:1;1411:4;1407:12;1438:18;1428:2;;1494:4;1486:6;1482:17;1472:27;;1428:2;1556;1548:6;1545:14;1525:18;1522:38;1519:2;;;1575:18;;:::i;:::-;1519:2;1340:269;;;;:::o;1615:180::-;1663:77;1660:1;1653:88;1760:4;1757:1;1750:15;1784:4;1781:1;1774:15;1801:102;;1893:2;1889:7;1884:2;1877:5;1873:14;1869:28;1859:38;;1849:54;;;:::o",
-  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >= 0.7.0 < 0.9.0;\r\n\r\ncontract TokenFarm {\r\n    string public name = \"TokenFarm\";\r\n}",
+  "sourceMap": "125:262:3:-:0;;;151:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;258:126;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;334:9;323:8;;:20;;;;;;;;;;;;;;;;;;366:10;354:9;;:22;;;;;;;;;;;;;;;;;;258:126;;125:262;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;7:175:4:-;;111:6;105:13;96:22;;127:49;170:5;127:49;:::i;:::-;86:96;;;;:::o;188:177::-;;293:6;287:13;278:22;;309:50;353:5;309:50;:::i;:::-;268:97;;;;:::o;371:506::-;;;540:2;528:9;519:7;515:23;511:32;508:2;;;556:1;553;546:12;508:2;599:1;624:80;696:7;687:6;676:9;672:22;624:80;:::i;:::-;614:90;;570:144;753:2;779:81;852:7;843:6;832:9;828:22;779:81;:::i;:::-;769:91;;724:146;498:379;;;;;:::o;883:96::-;;949:24;967:5;949:24;:::i;:::-;938:35;;928:51;;;:::o;985:112::-;;1067:24;1085:5;1067:24;:::i;:::-;1056:35;;1046:51;;;:::o;1103:113::-;;1186:24;1204:5;1186:24;:::i;:::-;1175:35;;1165:51;;;:::o;1222:126::-;;1299:42;1292:5;1288:54;1277:65;;1267:81;;;:::o;1354:320::-;;1435:1;1429:4;1425:12;1415:22;;1482:1;1476:4;1472:12;1503:18;1493:2;;1559:4;1551:6;1547:17;1537:27;;1493:2;1621;1613:6;1610:14;1590:18;1587:38;1584:2;;;1640:18;;:::i;:::-;1584:2;1405:269;;;;:::o;1680:180::-;1728:77;1725:1;1718:88;1825:4;1822:1;1815:15;1849:4;1846:1;1839:15;1866:154;1955:40;1989:5;1955:40;:::i;:::-;1948:5;1945:51;1935:2;;2010:1;2007;2000:12;1935:2;1925:95;:::o;2026:156::-;2116:41;2151:5;2116:41;:::i;:::-;2109:5;2106:52;2096:2;;2172:1;2169;2162:12;2096:2;2086:96;:::o;125:262:3:-;;;;;;;",
+  "deployedSourceMap": "125:262:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;151:32;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;7:364:4:-;;123:39;156:5;123:39;:::i;:::-;178:71;242:6;237:3;178:71;:::i;:::-;171:78;;258:52;303:6;298:3;291:4;284:5;280:16;258:52;:::i;:::-;335:29;357:6;335:29;:::i;:::-;330:3;326:39;319:46;;99:272;;;;;:::o;377:313::-;;528:2;517:9;513:18;505:26;;577:9;571:4;567:20;563:1;552:9;548:17;541:47;605:78;678:4;669:6;605:78;:::i;:::-;597:86;;495:195;;;;:::o;696:99::-;;782:5;776:12;766:22;;755:40;;;:::o;801:169::-;;919:6;914:3;907:19;959:4;954:3;950:14;935:29;;897:73;;;;:::o;976:307::-;1044:1;1054:113;1068:6;1065:1;1062:13;1054:113;;;1153:1;1148:3;1144:11;1138:18;1134:1;1129:3;1125:11;1118:39;1090:2;1087:1;1083:10;1078:15;;1054:113;;;1185:6;1182:1;1179:13;1176:2;;;1265:1;1256:6;1251:3;1247:16;1240:27;1176:2;1025:258;;;;:::o;1289:320::-;;1370:1;1364:4;1360:12;1350:22;;1417:1;1411:4;1407:12;1438:18;1428:2;;1494:4;1486:6;1482:17;1472:27;;1428:2;1556;1548:6;1545:14;1525:18;1522:38;1519:2;;;1575:18;;:::i;:::-;1519:2;1340:269;;;;:::o;1615:180::-;1663:77;1660:1;1653:88;1760:4;1757:1;1750:15;1784:4;1781:1;1774:15;1801:102;;1893:2;1889:7;1884:2;1877:5;1873:14;1869:28;1859:38;;1849:54;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >= 0.7.0 < 0.9.0;\r\n\r\nimport \"./DaiToken.sol\";\r\nimport \"./DappToken.sol\";\r\n\r\ncontract TokenFarm {\r\n    string public name = \"TokenFarm\";\r\n    DaiToken private daiToken;\r\n    DappToken private dappToken;\r\n\r\n    constructor(DaiToken _daiToken, DappToken _dappToken) {\r\n        daiToken = _daiToken;\r\n        dappToken = _dappToken;\r\n    }\r\n}",
   "sourcePath": "C:\\dev\\dapp\\src\\contracts\\TokenFarm.sol",
   "ast": {
     "absolutePath": "project:/src/contracts/TokenFarm.sol",
     "exportedSymbols": {
+      "DaiToken": [
+        180
+      ],
+      "DappToken": [
+        361
+      ],
       "TokenFarm": [
-        425
+        451
       ]
     },
-    "id": 426,
+    "id": 452,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -1557,14 +2428,36 @@
         "src": "33:33:3"
       },
       {
+        "absolutePath": "project:/src/contracts/DaiToken.sol",
+        "file": "./DaiToken.sol",
+        "id": 422,
+        "nodeType": "ImportDirective",
+        "scope": 452,
+        "sourceUnit": 181,
+        "src": "70:24:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/src/contracts/DappToken.sol",
+        "file": "./DappToken.sol",
+        "id": 423,
+        "nodeType": "ImportDirective",
+        "scope": 452,
+        "sourceUnit": 362,
+        "src": "96:25:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
         "abstract": false,
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 425,
+        "id": 451,
         "linearizedBaseContracts": [
-          425
+          451
         ],
         "name": "TokenFarm",
         "nodeType": "ContractDefinition",
@@ -1572,12 +2465,12 @@
           {
             "constant": false,
             "functionSelector": "06fdde03",
-            "id": 424,
+            "id": 426,
             "mutability": "mutable",
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 425,
-            "src": "96:32:3",
+            "scope": 451,
+            "src": "151:32:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1585,10 +2478,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 422,
+              "id": 424,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "96:6:3",
+              "src": "151:6:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -1596,14 +2489,14 @@
             },
             "value": {
               "hexValue": "546f6b656e4661726d",
-              "id": 423,
+              "id": 425,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "117:11:3",
+              "src": "172:11:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_7396ebb666e52a2fb1fad1e1aa95d9464150058642153de19787492949052f71",
                 "typeString": "literal_string \"TokenFarm\""
@@ -1611,22 +2504,279 @@
               "value": "TokenFarm"
             },
             "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 429,
+            "mutability": "mutable",
+            "name": "daiToken",
+            "nodeType": "VariableDeclaration",
+            "scope": 451,
+            "src": "190:25:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_DaiToken_$180",
+              "typeString": "contract DaiToken"
+            },
+            "typeName": {
+              "id": 428,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 427,
+                "name": "DaiToken",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 180,
+                "src": "190:8:3"
+              },
+              "referencedDeclaration": 180,
+              "src": "190:8:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DaiToken_$180",
+                "typeString": "contract DaiToken"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 432,
+            "mutability": "mutable",
+            "name": "dappToken",
+            "nodeType": "VariableDeclaration",
+            "scope": 451,
+            "src": "222:27:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_DappToken_$361",
+              "typeString": "contract DappToken"
+            },
+            "typeName": {
+              "id": 431,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 430,
+                "name": "DappToken",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 361,
+                "src": "222:9:3"
+              },
+              "referencedDeclaration": 361,
+              "src": "222:9:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DappToken_$361",
+                "typeString": "contract DappToken"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 449,
+              "nodeType": "Block",
+              "src": "312:72:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 443,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 441,
+                      "name": "daiToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 429,
+                      "src": "323:8:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DaiToken_$180",
+                        "typeString": "contract DaiToken"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 442,
+                      "name": "_daiToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 435,
+                      "src": "334:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DaiToken_$180",
+                        "typeString": "contract DaiToken"
+                      }
+                    },
+                    "src": "323:20:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DaiToken_$180",
+                      "typeString": "contract DaiToken"
+                    }
+                  },
+                  "id": 444,
+                  "nodeType": "ExpressionStatement",
+                  "src": "323:20:3"
+                },
+                {
+                  "expression": {
+                    "id": 447,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 445,
+                      "name": "dappToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 432,
+                      "src": "354:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DappToken_$361",
+                        "typeString": "contract DappToken"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 446,
+                      "name": "_dappToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 438,
+                      "src": "366:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DappToken_$361",
+                        "typeString": "contract DappToken"
+                      }
+                    },
+                    "src": "354:22:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DappToken_$361",
+                      "typeString": "contract DappToken"
+                    }
+                  },
+                  "id": 448,
+                  "nodeType": "ExpressionStatement",
+                  "src": "354:22:3"
+                }
+              ]
+            },
+            "id": 450,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 435,
+                  "mutability": "mutable",
+                  "name": "_daiToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 450,
+                  "src": "270:18:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_DaiToken_$180",
+                    "typeString": "contract DaiToken"
+                  },
+                  "typeName": {
+                    "id": 434,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 433,
+                      "name": "DaiToken",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 180,
+                      "src": "270:8:3"
+                    },
+                    "referencedDeclaration": 180,
+                    "src": "270:8:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DaiToken_$180",
+                      "typeString": "contract DaiToken"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 438,
+                  "mutability": "mutable",
+                  "name": "_dappToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 450,
+                  "src": "290:20:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_DappToken_$361",
+                    "typeString": "contract DappToken"
+                  },
+                  "typeName": {
+                    "id": 437,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 436,
+                      "name": "DappToken",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 361,
+                      "src": "290:9:3"
+                    },
+                    "referencedDeclaration": 361,
+                    "src": "290:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DappToken_$361",
+                      "typeString": "contract DappToken"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "269:42:3"
+            },
+            "returnParameters": {
+              "id": 440,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "312:0:3"
+            },
+            "scope": 451,
+            "src": "258:126:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
           }
         ],
-        "scope": 426,
-        "src": "70:62:3"
+        "scope": 452,
+        "src": "125:262:3"
       }
     ],
-    "src": "33:99:3"
+    "src": "33:354:3"
   },
   "legacyAST": {
     "absolutePath": "project:/src/contracts/TokenFarm.sol",
     "exportedSymbols": {
+      "DaiToken": [
+        180
+      ],
+      "DappToken": [
+        361
+      ],
       "TokenFarm": [
-        425
+        451
       ]
     },
-    "id": 426,
+    "id": 452,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -1645,14 +2795,36 @@
         "src": "33:33:3"
       },
       {
+        "absolutePath": "project:/src/contracts/DaiToken.sol",
+        "file": "./DaiToken.sol",
+        "id": 422,
+        "nodeType": "ImportDirective",
+        "scope": 452,
+        "sourceUnit": 181,
+        "src": "70:24:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/src/contracts/DappToken.sol",
+        "file": "./DappToken.sol",
+        "id": 423,
+        "nodeType": "ImportDirective",
+        "scope": 452,
+        "sourceUnit": 362,
+        "src": "96:25:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
         "abstract": false,
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 425,
+        "id": 451,
         "linearizedBaseContracts": [
-          425
+          451
         ],
         "name": "TokenFarm",
         "nodeType": "ContractDefinition",
@@ -1660,12 +2832,12 @@
           {
             "constant": false,
             "functionSelector": "06fdde03",
-            "id": 424,
+            "id": 426,
             "mutability": "mutable",
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 425,
-            "src": "96:32:3",
+            "scope": 451,
+            "src": "151:32:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1673,10 +2845,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 422,
+              "id": 424,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "96:6:3",
+              "src": "151:6:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -1684,14 +2856,14 @@
             },
             "value": {
               "hexValue": "546f6b656e4661726d",
-              "id": 423,
+              "id": 425,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "117:11:3",
+              "src": "172:11:3",
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_7396ebb666e52a2fb1fad1e1aa95d9464150058642153de19787492949052f71",
                 "typeString": "literal_string \"TokenFarm\""
@@ -1699,21 +2871,280 @@
               "value": "TokenFarm"
             },
             "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 429,
+            "mutability": "mutable",
+            "name": "daiToken",
+            "nodeType": "VariableDeclaration",
+            "scope": 451,
+            "src": "190:25:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_DaiToken_$180",
+              "typeString": "contract DaiToken"
+            },
+            "typeName": {
+              "id": 428,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 427,
+                "name": "DaiToken",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 180,
+                "src": "190:8:3"
+              },
+              "referencedDeclaration": 180,
+              "src": "190:8:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DaiToken_$180",
+                "typeString": "contract DaiToken"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 432,
+            "mutability": "mutable",
+            "name": "dappToken",
+            "nodeType": "VariableDeclaration",
+            "scope": 451,
+            "src": "222:27:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_DappToken_$361",
+              "typeString": "contract DappToken"
+            },
+            "typeName": {
+              "id": 431,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 430,
+                "name": "DappToken",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 361,
+                "src": "222:9:3"
+              },
+              "referencedDeclaration": 361,
+              "src": "222:9:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DappToken_$361",
+                "typeString": "contract DappToken"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 449,
+              "nodeType": "Block",
+              "src": "312:72:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 443,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 441,
+                      "name": "daiToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 429,
+                      "src": "323:8:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DaiToken_$180",
+                        "typeString": "contract DaiToken"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 442,
+                      "name": "_daiToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 435,
+                      "src": "334:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DaiToken_$180",
+                        "typeString": "contract DaiToken"
+                      }
+                    },
+                    "src": "323:20:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DaiToken_$180",
+                      "typeString": "contract DaiToken"
+                    }
+                  },
+                  "id": 444,
+                  "nodeType": "ExpressionStatement",
+                  "src": "323:20:3"
+                },
+                {
+                  "expression": {
+                    "id": 447,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 445,
+                      "name": "dappToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 432,
+                      "src": "354:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DappToken_$361",
+                        "typeString": "contract DappToken"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 446,
+                      "name": "_dappToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 438,
+                      "src": "366:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_DappToken_$361",
+                        "typeString": "contract DappToken"
+                      }
+                    },
+                    "src": "354:22:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DappToken_$361",
+                      "typeString": "contract DappToken"
+                    }
+                  },
+                  "id": 448,
+                  "nodeType": "ExpressionStatement",
+                  "src": "354:22:3"
+                }
+              ]
+            },
+            "id": 450,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 439,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 435,
+                  "mutability": "mutable",
+                  "name": "_daiToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 450,
+                  "src": "270:18:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_DaiToken_$180",
+                    "typeString": "contract DaiToken"
+                  },
+                  "typeName": {
+                    "id": 434,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 433,
+                      "name": "DaiToken",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 180,
+                      "src": "270:8:3"
+                    },
+                    "referencedDeclaration": 180,
+                    "src": "270:8:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DaiToken_$180",
+                      "typeString": "contract DaiToken"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 438,
+                  "mutability": "mutable",
+                  "name": "_dappToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 450,
+                  "src": "290:20:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_DappToken_$361",
+                    "typeString": "contract DappToken"
+                  },
+                  "typeName": {
+                    "id": 437,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 436,
+                      "name": "DappToken",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 361,
+                      "src": "290:9:3"
+                    },
+                    "referencedDeclaration": 361,
+                    "src": "290:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_DappToken_$361",
+                      "typeString": "contract DappToken"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "269:42:3"
+            },
+            "returnParameters": {
+              "id": 440,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "312:0:3"
+            },
+            "scope": 451,
+            "src": "258:126:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
           }
         ],
-        "scope": 426,
-        "src": "70:62:3"
+        "scope": 452,
+        "src": "125:262:3"
       }
     ],
-    "src": "33:99:3"
+    "src": "33:354:3"
   },
   "compiler": {
     "name": "solc",
     "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x458a87BE94B98Bd3B20Fa87b9E3255Cf2d8D39c4",
+      "transactionHash": "0x32ae50eefcf7f83fd6a261e7f5c1d5578e01ecfd41f5524ecec4ebac147f69f1"
+    }
+  },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-30T08:18:11.729Z",
+  "updatedAt": "2021-11-15T05:36:47.937Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

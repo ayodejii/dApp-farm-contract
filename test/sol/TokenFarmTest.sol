@@ -45,7 +45,7 @@ contract TokenFarmTest {
     }
 
     function test_that_sender_Has_1million_dai_after_migration() public{
-        uint thisAddressBalance = dappToken.balanceOf(address(this));
+        uint thisAddressBalance = daiToken.balanceOf(address(this));
         Assert.equal(thisAddressBalance, ethAmount, "because 1m eth was sent to it");
     }
 }

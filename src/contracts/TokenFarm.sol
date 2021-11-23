@@ -12,10 +12,12 @@ contract TokenFarm {
     mapping(address => bool) public hasStaked; //flag that checks if the person has staked before
     mapping(address => bool) public isStaking; //flag that checks if the person is currently staking
     address[] public stakers;
+    address private owner;
 
     constructor(DaiToken _daiToken, DappToken _dappToken) {
         daiToken = _daiToken;
         dappToken = _dappToken;
+        owner = msg.sender;
     }
 
     function getName() public view returns (string memory) {
@@ -40,5 +42,14 @@ contract TokenFarm {
     }
     //unstake token (withdraw)
 
-    //earn interest
+    //earn interest - issue tokens
+    function issueTokens() public{
+        require(msg.sender == owner, "caller must be the owner");
+        for (uint256 i = 0; i < stakers.length; i++) {
+            address receipient = stakers[i];
+            uint balance = daiStakeBalance[receipient];
+            if(balance > 0)
+                dappToken.transfer(receipient, balance);
+        }
+    }
 }

@@ -64,5 +64,15 @@ contract TokenFarmTest {
         //AssertAddress.equal(address(tokenFarm.stakers[0]), address(this), "because this address has been added to the list of stakers");
     }
 
+    function test_issue_tokens() public{
+        //test that the issue token function was successful i.e. this address gets same balance
+        uint daiStakeAmount = 100_000_000000000000000000;
+        daiToken.approve(address(tokenFarm), daiStakeAmount);
+        tokenFarm.stakeToken(daiStakeAmount);
+        tokenFarm.issueTokens();
+        uint dappBalanceOfThisAddress = dappToken.balanceOf(address(this));
+        Assert.equal(daiStakeAmount, dappBalanceOfThisAddress, "because investors gets same amount of dapp");
+    }
+
 
 }

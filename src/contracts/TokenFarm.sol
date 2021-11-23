@@ -25,6 +25,7 @@ contract TokenFarm {
 
     //stake token (deposit)
     function stakeToken(uint amount) public {
+        require(amount > 0, "the amount must be greater than zero");
         //transfer dai from user to this farm
         daiToken.transferFrom(msg.sender, address(this), amount);
         //update their dai stake balance

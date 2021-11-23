@@ -51,6 +51,7 @@ contract TokenFarmTest {
     }
 
     function test_that_investor_has_staked_hundred_thou_dai() public{
+        //this test method is testing many things at the same time tho
         uint stakeAmount = 100_000_000000000000000000;
         daiToken.approve(address(tokenFarm), stakeAmount);
         tokenFarm.stakeToken(stakeAmount);
@@ -60,5 +61,8 @@ contract TokenFarmTest {
         Assert.equal(curentDaiBalance, thisAddressDaiBalance, "because the investor has staked 1h thou tokens");
         Assert.equal(stakeAmount, thisAddressDaiStakeAmount, "because that is the correct amount staked");
         Assert.isTrue(tokenFarm.hasStaked(address(this)), "because the investor has staked");
+        //AssertAddress.equal(address(tokenFarm.stakers[0]), address(this), "because this address has been added to the list of stakers");
     }
+
+
 }

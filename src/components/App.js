@@ -1,8 +1,22 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import './App.css'
+import Web3 from 'web3'
 
 class App extends Component {
+
+async loadWeb3(){
+  if(window.ethereum){
+    window.web3 = new Web3(window.ethereum)
+    await window.ethereum.enable();
+  }
+  else if(window.web3){
+    window.web3 = new Web3(window.web3.currentProvider)
+  }
+  else{
+    alert("non eth broswer discovered");
+  }
+}
 
   constructor(props) {
     super(props)
